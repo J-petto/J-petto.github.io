@@ -1,6 +1,6 @@
 ---
 title: Jekyll Github 블로그 만들기
-date: 2024-08-14 13:23:00 +/-0800
+date: 2024-08-14 13:23:00 +0900
 categories: [블로그 제작기, 블로그 시작]
 tags: [시작]     # TAG names should always be lowercase
 description: Jekyll를 이용하여 Github 블로그를 만들어 보자
@@ -62,5 +62,11 @@ gem install jekyll bundler
 github.io 레포를 만들어 직접 웹페이지를 꾸밀 수 있겠지만...   
 세상엔 좋은 테마들이많다.   
 Jekyll에서 원하는 테마를 가져와 레포를 만들면 더 간단하게 깔끔한 블로그가 나오니 잘 이용해주자.   
-[Jekyllthmes 홈페이지](http://jekyllthemes.org/)   
+[Jekyllthmes 홈페이지]   
 위에서 원하는 테마를 선택해 가져온다. (더 다양한 곳도 많으니 여러모로 찾아보자)   
+
+
+
+
+
+[Jekyllthmes 홈페이지]: https://jekyllthemes.org/ 
