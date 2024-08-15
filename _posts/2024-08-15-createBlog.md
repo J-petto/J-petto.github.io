@@ -62,11 +62,12 @@ gem install jekyll bundler
 github.io 레포를 만들어 직접 웹페이지를 꾸밀 수 있겠지만...   
 세상엔 좋은 테마들이많다.   
 Jekyll에서 원하는 테마를 가져와 레포를 만들면 더 간단하게 깔끔한 블로그가 나오니 잘 이용해주자.   
-[Jekyllthmes 홈페이지]   
-위에서 원하는 테마를 선택해 가져온다. (더 다양한 곳도 많으니 여러모로 찾아보자)   
+Jekyll 테마를 검색해 원하는 테마를 선택한다.   
 
+### 4. 테마에 맞춰 github.io 레포를 생성하기.
+내가 선택한 테마는 Chirpy로 지금 이 블로그 테마이다. [Chirpy github](https://github.com/cotes2020/jekyll-theme-chirpy/)   
+이 테마는 디자인도 맘에 들기도했고 wiki가 있어 설명이 잘 되어있는 편이라 편했다. [Chirpy Wiki](https://github.com/cotes2020/jekyll-theme-chirpy/wiki)   
 
-
-
-
-[Jekyllthmes 홈페이지]: http://jekyllthemes.org/ 
+#### 1. 테마 가져오기
+Chirpy는 테마를 그대로 가져와 github 레포를 만들 수 있도록 chirpy starter 레포를 제공해준다. [Chirpy starter](https://github.com/cotes2020/chirpy-starter)   
+링크에 들어가 **Use this template** 선택 후 **create a new repository** 를 선택한다.
