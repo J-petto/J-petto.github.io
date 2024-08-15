@@ -17,3 +17,10 @@ brew install rbenv
 {: .nolineno }
 을 입력해 ruby를 다운로드 받을 수 있는 인스톨러를 다운한다.   
 그리고 .zshrc 파일을 열어 해당 코드를 추가해준다.
+
+```shell
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+```
+{: .nolineno }
+이로써 rbenv를 사용할 수 있는 준비가 완료되었다.  
