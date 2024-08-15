@@ -50,3 +50,10 @@ rbenv global 3.3.4
 rbenv local 3.3.4
 ```
 {: .nolineno }
+
+### 2. Jekyll 다운로드 받기
+이제 Jekyll을 다운로드 한다.
+
+```shell
+gem install jekyll bundler
+```
