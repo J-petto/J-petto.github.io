@@ -69,4 +69,4 @@ Jekyll에서 원하는 테마를 가져와 레포를 만들면 더 간단하게 
 
 
 
-[Jekyllthmes 홈페이지]: https://jekyllthemes.org/ 
+[Jekyllthmes 홈페이지]: http://jekyllthemes.org/ 
