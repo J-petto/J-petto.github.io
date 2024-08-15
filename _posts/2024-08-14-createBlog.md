@@ -9,7 +9,7 @@ description: Jekyll를 이용하여 Github 블로그를 만들어 보자
 Jekyll을 이용해서 Github 블로그를 만들었다.   
 잊어버리기 전에 글쓰기 연습 겸 정리를 해두려고 한다.   
 
-### 1. Ruby 다운로드 받기
+## 1. Ruby 다운로드 받기
 Jekyll는 기본적으로 ruby를 다운 받아야 사용 할 수 있다.
 ```shell
 brew install rbenv
@@ -48,25 +48,25 @@ rbenv local 3.3.4
 ```
 {: .nolineno }
 
-### 2. Jekyll 다운로드 받기
+## 2. Jekyll 다운로드 받기
 이제 Jekyll을 다운로드 한다.
 
 ```shell
 gem install jekyll bundler
 ```
 
-### 3. 원하는 Jekyll 테마 확인하기
+## 3. 원하는 Jekyll 테마 확인하기
 github.io 레포를 만들어 직접 웹페이지를 꾸밀 수 있겠지만...   
 세상엔 좋은 테마들이많다.   
 Jekyll에서 원하는 테마를 가져와 레포를 만들면 더 간단하게 깔끔한 블로그가 나오니 잘 이용해주자.     
 Jekyll 테마를 검색해 원하는 테마를 선택한다.   
  
 
-### 4. 테마에 맞춰 github.io 레포를 생성하기.
+## 4. 테마에 맞춰 github.io 레포를 생성하기.
 내가 선택한 테마는 Chirpy로 지금 이 블로그 테마이다. [Chirpy github](https://github.com/cotes2020/jekyll-theme-chirpy/)   
 이 테마는 디자인도 맘에 들기도했고 wiki가 있어 설명이 잘 되어있는 편이라 편했다. [Chirpy Wiki](https://github.com/cotes2020/jekyll-theme-chirpy/wiki)   
 
-#### 1. 테마 가져오기
+### 1. 테마 가져오기
 Chirpy는 테마를 그대로 가져와 github 레포를 만들 수 있도록 chirpy starter 레포를 제공해준다. [Chirpy starter](https://github.com/cotes2020/chirpy-starter)    
 링크에 들어가 
 <button style="background-color:green; border:none; border-radius:5px; color:white">**Use this template**</button> > 
@@ -74,12 +74,12 @@ Chirpy는 테마를 그대로 가져와 github 레포를 만들 수 있도록 ch
 ![](assets/post_img/1/img1.png)
 _chirpy starter 레포_
 
-#### 2. 레포 만들기
+### 2. 레포 만들기
 버튼을 누르면 내 레포를 새로 만들 수 있는데 Reposiroty name에 username.github.io 입력 후 <button style="background-color:green; border:none; border-radius:5px; color:white">**Create repository**</button> 버튼을 누르면된다.
 ![](assets/post_img/1/img2.png)
 _레포 생성하기_
 
-#### 3. _config.yml 파일 수정하기
+### 3. _config.yml 파일 수정하기
 생성된 레포를 clone 해서 내 컴퓨터에 가져온 후 **_config.yml**을 변경해준다.   
 ```yml
 // 블로그 언어 설정
@@ -97,7 +97,7 @@ avatar: 프로필 파일경로
 {: .nolineno }
 이정도의 기본 설정을 거치고 나면 그럴싸한 나만의 github 블로그가 생기게된다.   
 
-#### \+ 추가사항 : favicon 설정하기
+### \+ 추가사항 : favicon 설정하기
 Chirpy에서 여기서 파비콘 만드세요~ 하는 사이트가 있는데 다른 사이트에서도 실험해본 결과로는 큰 상관은 없었다.
 이미지 파일을 파비콘으로 변경 후 다운로드 한 폴더에서 json 파일과 xml 파일을 지우고 해당 폴더 이름을 favicons로 바꿔 assets/img/에 폴더를 위치시키면된다.   
 ![](assets/post_img/1/img3.png){: .left}
