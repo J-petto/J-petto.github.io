@@ -67,7 +67,7 @@ Jekyll에서 원하는 테마를 가져와 레포를 만들면 더 간단하게 
 
 #### 1. 테마 가져오기
 Chirpy는 테마를 그대로 가져와 github 레포를 만들 수 있도록 chirpy starter 레포를 제공해준다. [Chirpy starter](https://github.com/cotes2020/chirpy-starter)    
-링크에 들어가 **Use this template** > create a new repository 를 선택한다.
+링크에 들어가 **Use this template** 선택 후 **create a new repository** 를 선택한다.
 ![](assets/post_img/1/img1.png)
 _chirpy starter 레포_
 
