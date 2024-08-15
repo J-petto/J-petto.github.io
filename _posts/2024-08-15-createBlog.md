@@ -25,6 +25,8 @@ brew install rbenv
 {: .nolineno }
 이로써 rbenv를 사용할 수 있는 준비가 완료되었다.  
 
+<br>
+
 ```shell
 rbenv install -l
 rbenv install 3.3.4
@@ -34,3 +36,4 @@ rbenv version
 * system
   3.3.4
 ```
+{: .nolineno }
