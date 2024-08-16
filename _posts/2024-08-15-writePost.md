@@ -1,7 +1,7 @@
 ---
 title: 포스트 작성하기
 date: 2024-08-15 20:08:00 +0900
-categories: [블로그 제작기, 글 작성]
+categories: [블로그 제작기]
 tags: [글 작성]     # TAG names should always be lowercase
 description: 블로그에 글 작성하기
 media_subpath: /assets/post_img/2/
