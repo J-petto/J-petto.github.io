@@ -27,6 +27,8 @@ description: 블로그에 글 작성하기
 media_subpath: /파일경로/
 ---
 ```
+{: .nolineno }
+
 ### title
 title은 게시글의 제목이다. title에 작성한대로 게시글 카드에 제목이 노출된다.   
 ### date
