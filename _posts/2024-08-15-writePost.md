@@ -4,7 +4,7 @@ date: 2024-08-15 20:08:00 +0900
 categories: [블로그 제작기]
 tags: [글 작성]     # TAG names should always be lowercase
 description: 블로그에 글 작성하기
-media_subpath: /assets/post_img/2/
+media_subpath: /assets/img/post/2/
 ---
 
 어제는 Jekyll로 깃헙 블로그를 만드는 글을 썼다면 오늘은 좌충우돌 글 작성에 대해 써볼려고한다.   

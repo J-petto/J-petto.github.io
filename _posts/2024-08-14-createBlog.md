@@ -4,6 +4,7 @@ date: 2024-08-14 13:23:00 +0900
 categories: [블로그 제작기]
 tags: [시작]     # TAG names should always be lowercase
 description: Jekyll를 이용하여 Github 블로그를 만들어 보자
+media_subpath: /assets/img/post/1/
 ---
 
 Jekyll을 이용해서 Github 블로그를 만들었다.   
@@ -71,12 +72,12 @@ Chirpy는 테마를 그대로 가져와 github 레포를 만들 수 있도록 ch
 링크에 들어가 
 <button style="background-color:green; border:none; border-radius:5px; color:white">**Use this template**</button> > 
 <button style="background-color:white; border-color:black; border-width:0.5px; border-radius:5px; color:black">create a new repository</button> 를 선택한다.
-![](assets/post_img/1/img1.png)
+![](img1.png)
 _chirpy starter 레포_
 
 ### 2. 레포 만들기
 버튼을 누르면 내 레포를 새로 만들 수 있는데 Reposiroty name에 username.github.io 입력 후 <button style="background-color:green; border:none; border-radius:5px; color:white">**Create repository**</button> 버튼을 누르면된다.
-![](assets/post_img/1/img2.png)
+![](img2.png)
 _레포 생성하기_
 
 ### 3. _config.yml 파일 수정하기
@@ -100,10 +101,10 @@ avatar: 프로필 파일경로
 ### \+ 추가사항 : favicon 설정하기
 Chirpy에서 여기서 파비콘 만드세요~ 하는 사이트가 있는데 다른 사이트에서도 실험해본 결과로는 큰 상관은 없었다.
 이미지 파일을 파비콘으로 변경 후 다운로드 한 폴더에서 json 파일과 xml 파일을 지우고 해당 폴더 이름을 favicons로 바꿔 assets/img/에 폴더를 위치시키면된다.   
-![](assets/post_img/1/img3.png){: .left}
+![](img3.png){: .left}
 <br><br><br><br><br>
 
 이렇게 파비콘 폴더를 위치 시키게 되면 Tab 한 켠에 위치한 조그마한 이미지가 노출되게된다.
-![](assets/post_img/1/img4.png){: .left}   
+![](img4.png){: .left}   
 <br><br>
 다음 글에선 이렇게 만든 블로그에 글을 쓰는 방법에 대해 기록하려한다.
