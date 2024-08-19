@@ -1,0 +1,82 @@
+---
+title: 번외. SqlSesstion 코드 뜯어보기
+date: 2024-08-19 20:07:00 +0900
+categories: [개발 공부, 네이버 클라우드 캠프]
+tags: [비트 캠프, 네이버 클라우드 캠프, batis, 코드 뜯어보기]     # TAG names should always be lowercase
+description: 실습 프로젝트의 bitbatis/SqlSesstion 코드를 하나씩 살펴보자.
+media_subpath: /assets/img/bitcamp/4
+---
+
+bitbatis는 mybatis를 사용하기 전 직접 batis를 코딩해보자는 의미로 강사님이 수업 시간에 짜신 코드이다.   
+복잡하기에 정리를 해두고 이 클래스는 이런 식으로 사용하는구나를 깨달아가보자.   
+
+아래는 SqlSession 클래스의 메서드를 정리해둔 UML이다.   
+![](img1.png){: w="500"}
+_SqlSession의 메서드 모음_
+![](img2.png)
+_SqlSession의 메서드 상관관계도_
+<br>
+
+## 1. insert와 insertReturningKey
+![](img3.png)
+- **insert**: sql문을 받아오고 Object... 으로 sql문에 필요한 파라미터를 받아 할당해준다.
+    그 후 `excuteUpdate()`를 호출해 sql문을 파싱한다.
+- **insertReturningKey**: insert와 동일하지만 sql문 파싱 후 Generated_Key가 필요할 때를 위한 메서드.
+    ResultSet을 통해 파싱 후 결과를 가져오고 준비해둔 Generated_Key를 반환해준다.
+
+> Generated_key란?   
+> 데이터베이스가 특정 열에 대해 값을 자동으로 생성하거나   
+> 새로운 레코드가 삽입될 때마다 자동으로 증가하는 숫자 값이 생성되는 컬럼의 값
+{: .prompt-info}
+
+## 2. update와 delete
+![](img4.png)   
+update와 delete는 insert와 동작방식이 똑같아 insert를 리턴해주는 방식으로 중복되는 코드 없이 정리해주었다.
+
+## 3. select문과 하위 메서드
+![](img5.png)
+- **selectList와 selectOne**: selectList와 SelectOne의 차이는 반환 값이 리스트에 담긴 객체냐 단일 객체냐이다.   
+    일단, ResultSet 전까지는 insert와 동일하게 sql문을 받아오고 파라미터를 할당 후 파싱한다.   
+    그 후 ResultSet으로 select한 결과 값을 가져오고 결과값의 각 컬럼의 이름을 `getColumnName` 메서드를 통해 모두 받아온다.   
+    list는 while문을 통해, one은 if문을 통해 값이 있을 때 한 줄의 레코드를 가져오고   
+    `createObject` 원하는 객체를 생성 후 `setPropertyValue`메서드로 객체에 값을 넣어준다.   
+
+- **getColumnNames**: 결과 값(ResultSet)에서 MetaData를 받아 컬럼 이름을 리스트화 시켜 반환해준다.
+        > ResultSetMetaData?   
+        > ResultSet의 열의 수, 열 이름, 열 데이터 타입 등의 정보가 담긴 데이터
+        {: .prompt-info}   
+
+- **createObject**: select에서 받아온 class를 가지고 해당 클래스의 새로운 인스턴스(객체)를 생성해 반환해준다.
+        > Constructor?   
+        > 객체를 생성하는데 필요한 클래스이다.   
+        > 평소 new~ 를 통해 객체를 생성할 때도 자동으로 Constructor가 호출된다. 이 클래스가 없으면 객체 생성 불가하다.
+        {: .prompt-info}   
+
+- **setPropertyValue**: 설명할게 가장 많은 메서드라 따로 빼서 설명한다. 아래에 계속...
+
+## 4. setPropertyValue와 그외 메서드
+![](img6.png)
+- **setPropertyValue**:
+    `names`: 컬럼의 이름을 가져온 것을 분할한 변수
+    Board 객체는 User 객체도 가지고 있는데 이를 분리하여 생성해주기 위함이다.   
+    SQL문을 작성할 때 Board와 관련된 데이터의 경우 카멜 방식으로,   
+    User와 관련된 데이터의 경우 SQL의 _ 방식으로 컬럼명을 as 해준 뒤 분기해준다.   
+    (ex. title->\[title\], user_name->\[user, name\])   
+    이때 분할된 컬럼명들은 모두 객체가 가지고 있는 변수 명과 동일하다.(앞에 get과 set만 붙여 메서드를 찾기 위함)
+    
+    이렇게 분기한 이름이 Board 관련인 경우 바로 `callSetter(parameter 3개)`를 통해 select메서드에서 받아온 board 객체에 값을 넣어준다.   
+    하지만 분기한 이름이 User  관련인 경우 `findMethod`를 통해 User 객체를 찾아준다.   
+    (이때 `toGetterName`에서 반환하는 메서드는 Board가 가지고 있는 User 객체 찾아오는 메서드이다.)   
+
+    **getter를 invoke 할 때**   
+    1. 첫 호출 시에는 Board가 User 객체를 가지고 있지 않다.(새로 생성된 Board 객체이기 떄문에 당연.)   
+        그렇기에 null 값이 오고 이때 getter의 리턴 타입(User) 객체를 새로 만들고   
+        `findMethod`를 통해 setter 메서드를 찾아 Board에 새로 만든 User객체를 담아준다.
+        다음으로 `callSetter(parameter 4개)`를 통해 User에 user_데이터 값을 넣준다.
+    2. 두번째 호출 시는 위에서 만든 User 객체가 있으므로 if문을 지나서 바로 값을 User에 넣어준다.   
+
+- **toGetterName**: 컬럼명에 get을 붙여 get~메서드를 찾아 반환함.
+- **toSetterName**: 컬럼명에 set을 붙여 set~메서드를 찾아 반환함.
+- **callSetter**: 파라미터의 갯수의 차이는 User의 경우 컬럼명이 names[1]로 들어가야하기 때문에 그 부분의 개수 차이이다.
+- **findMethod**: 받아온 Class에 있는 모든 Method 중 원하는 메서드와 동일한 메서드를 찾아 반환해준다.
+- **getColumnValue**: column의 데이터 값에 따라서 ResultSet에서 값을 가져올 때 알맞은 메서드를 사용해 값을 ㄹ
