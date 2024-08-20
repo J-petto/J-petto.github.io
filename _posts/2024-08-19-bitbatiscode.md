@@ -4,7 +4,7 @@ date: 2024-08-19 20:07:00 +0900
 categories: [개발 공부, 네이버 클라우드 캠프]
 tags: [비트 캠프, 네이버 클라우드 캠프, batis, 코드 뜯어보기]     # TAG names should always be lowercase
 description: 실습 프로젝트의 bitbatis/SqlSesstion 코드를 하나씩 살펴보자.
-media_subpath: /assets/img/bitcamp/4
+media_subpath: /assets/img/bitcamp/4/
 ---
 
 bitbatis는 mybatis를 사용하기 전 직접 batis를 코딩해보자는 의미로 강사님이 수업 시간에 짜신 코드이다.   
